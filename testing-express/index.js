@@ -14,15 +14,15 @@ app.get('/people', (req, res) => {
 }) //obtain from the path /people the list fo pepople that we create 
 
 app.get('/person/:id', (req, res) => { 
-    const id = parseInt(req.params.id)
-    const person = people.find(person => person.id === id)
+    const id = parseInt(req.params.id) //get the id that was provided by the user in url
+    const person = people.find(person => person.id === id) //accessing to people and find the person with the id previously searched
 
-    if (person) {
+    if (person) { //if we find something return that information
     res.json(person)
     return
     }
 
-    res.sendStatus(404)
+    res.sendStatus(404) //if dont find anything will return a status error 404
 }) // this will get the information of a person using the id property, in this case 1 or 2
 
 app.listen(3000, () => console.log('Server ready')) //the serves is hosted in port 3000 and in cosole send the `server ready` when everything is allright
