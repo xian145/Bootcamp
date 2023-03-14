@@ -1,0 +1,12 @@
+/* es la forma en la que ponemos estilos */
+body {
+    background-color: aquamarine;
+}
+
+.just_text {
+    color: red;
+}/* esto es para las clases */
+
+p > span {
+    color: yellow;
+  } /* > indicates that the only level who aplieds its the first adn not all the nested ones. */
