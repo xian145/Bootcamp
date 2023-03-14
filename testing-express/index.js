@@ -15,6 +15,14 @@ app.get('/people', (req, res) => {
 
 app.get('/person/:id', (req, res) => { 
     const id = parseInt(req.params.id)
+    const person = people.find(person => person.id === id)
+
+    if (person) {
+    res.json(person)
+    return
+    }
+
+    res.sendStatus(404)
 }) // this will get the information of a person using the id property, in this case 1 or 2
 
 app.listen(3000, () => console.log('Server ready')) //the serves is hosted in port 3000 and in cosole send the `server ready` when everything is allright
