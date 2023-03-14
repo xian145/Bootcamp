@@ -1,0 +1,6 @@
+this folder contain the basic information to create a basi express server.
+
+If we dont haver the node_modules folder we need to run "npm install express" and dont forget to have
+a .gitignore so we dont commit it.
+
+in this case the local server will be in "localhost:3000" bc we told him to do that.
