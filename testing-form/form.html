@@ -1,0 +1,21 @@
+<form action="/test" method="POST"> <!-- its a form -->
+    <div>
+        <label for="name">Name</label>
+        <input name="name" id="name" required /> <!-- its requiered, no objection -->
+    </div>
+    <div>
+        <label for="email">Email address</label>
+        <input type="email" id="email" name="email" required /> <!-- its requiered, no objection -->
+    </div>
+    <div>
+        <label for="notes">Notes</label>
+        <textarea
+        id="notes"
+        rows="3"
+        placeholder="Anything you want to tell us!"> 
+    </textarea> <!-- just a textbox, no requiered -->
+    </div>
+    <div>
+        <button type="submit">Save</button> <!-- buttom to submit the answer if everything that is requiered its in it -->
+    </div>
+</form>
