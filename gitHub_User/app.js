@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", ()=> {
 
         const username = document.querySelector("input").value //this constant will get its value from the input of the form
         const response = await fetch(`https://api.github.com/users/${username}`) //this will fetch infromation from the API serching for the username we introduce from the form
-        const data = await response.json() //once we have the response we convert that information into json.
 
         const createCard = (data) => `
         <div class="px-4 py-5 sm:px-6 -ml-4 -mt-4 border-b border-gray-200 pb-8 flex justify-between items-center flex-wrap sm:flex-no-wrap">
@@ -58,8 +57,14 @@ document.addEventListener("DOMContentLoaded", ()=> {
         </div>
       ` //this function will create a string tha will be added to the HTML with all the tailwindcss style
         //all that information is fetch from the API and we just give them form
-        const card = createCard(data) //call the function and introduce the "data"
-        document.querySelector('#container').insertAdjacentHTML("afterbegin", card) //on id=conatiner will add as a string in HTML what is contained in "card"
-        //the afterbegin property will make the last card show first.
+
+        if (response.status === 200) { //check if everything is ok, and if it is create tehe card, its important the funtion is above.
+            const data = await response.json() //once we have the response we convert that information into json.
+            const card = createCard(data) //call the function and introduce the "data"
+            document.querySelector('#container').insertAdjacentHTML("afterbegin", card) //on id=conatiner will add as a string in HTML what is contained in "card"
+            //the afterbegin property will make the last card show first.
+        }else { //if not found do this
+            alert('Username not found')
+        }
     })
 })
