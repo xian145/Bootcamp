@@ -59,6 +59,7 @@ document.addEventListener("DOMContentLoaded", ()=> {
       ` //this function will create a string tha will be added to the HTML with all the tailwindcss style
         //all that information is fetch from the API and we just give them form
         const card = createCard(data) //call the function and introduce the "data"
-        document.querySelector('#container').insertAdjacentHTML("beforebegin", card) //on id=conatiner will add as a string in HTML what is contained in "card"
+        document.querySelector('#container').insertAdjacentHTML("afterbegin", card) //on id=conatiner will add as a string in HTML what is contained in "card"
+        //the afterbegin property will make the last card show first.
     })
 })
