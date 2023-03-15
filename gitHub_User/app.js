@@ -74,5 +74,6 @@ document.addEventListener("DOMContentLoaded", ()=> {
         }else { //if not found do this
             alert('Username not found')
         }
+        document.querySelector("input").value = '' //this will clear the input every time you search for a user
     })
 })
