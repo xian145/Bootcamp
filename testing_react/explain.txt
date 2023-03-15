@@ -1,0 +1,6 @@
+to create  new procet with react, we need to run this in the terminal
+$ npm create vite@latest
+will ask for:
+-name
+-framework
+-variant that will be js
