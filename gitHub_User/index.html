@@ -2,12 +2,25 @@
 <html>
     <head>
         <script src="app.js"></script>
+        <script src="https://cdn.tailwindcss.com"></script>
     </head>
     <body>
-        <h1>Search a GitHub user</h1>
-        <form action="">
-            <input type="text" name="username">
-            <button type="submit">Search</button>
+        <h1 class="pt-10 text-center mt-6 text-3xl leading-9 font-extrabold text-gray-800">Search a GitHub user</h1>
+        <!-- padding top 10, center text, margin top 6, text 3XL, i dont know, extrabold, text gray -->
+        <form action="" class="w-full max-w-sm mx-auto">
+            <!-- width all, max width small, margin in x auto -->
+            <div class="mt-10 flex"> 
+                <!-- margin top 10, flex box -->
+                <input type="text" name="username" placeholder="user"
+                class="form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-md focus:outline-gray-500 focus:shadow-outline-blue focus:border-blue-300" />
+                <!-- i dont know, type block, width all, padding in y axis 3, padding in x axis, border true, 
+                border gray, rounded corners, shadow under box, outline gray when selected, dont know, when selected the border change to blue -->
+                <button type="submit"
+                class="ml-2 py-2 px-3 border border-gray-300 rounded-md text-sm leading-4 font-medium text-gray-700 
+                hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800">Search</button>
+                <!-- margin left 2, padding Y 2, padding X 3, border true, border gray, corners of border rounded, text small, space between lines, font boldnest, text color,
+                change color when hover, when selected outline disappear, when selected border change to blue, when selected add a blue shadow, when selected change bg color to gray, when slected change text color to more intensive gray -->
+            </div>
         </form>
     </body>
 </html>
