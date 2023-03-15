@@ -4,3 +4,6 @@ will ask for:
 -name
 -framework
 -variant that will be js
+After that, in the terminal we gonna change folder to the new one created with the name we put them and run the next lines:
+$ npm install
+$ npm run dev
