@@ -16,4 +16,4 @@ app.get('/', (req,res) => {
     res.send(page) //here we tell to responde with the page
 })
 
-app.listen(3000, () => console.log('Server ready'))
+app.listen(3000, () => console.log('Server ready')) //upload our server in localhost:3000
