@@ -29,10 +29,9 @@ app.get('/', (req,res) => {
 
 app.post('/person', (req,res) => {
     console.log('new person recived');
-
     const name = req.body.name //will obtain the name from the request body from the input named "name"
-    res.send(name) //send the response to the url /person
-    console.log(name); //just send to the terminal
+    people.push({name: name}) //here will be add the name provided by the user in the array people
+    res.redirect('/') //the response will send us again to the "/" but will update the list of people
 })
 
 app.listen(3000, () => console.log('Server ready')) //upload our server in localhost:3000
