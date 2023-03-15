@@ -7,3 +7,4 @@ will ask for:
 After that, in the terminal we gonna change folder to the new one created with the name we put them and run the next lines:
 $ npm install
 $ npm run dev
+if working in more than one place, pls run in every place the "npm install" inside the project folder
