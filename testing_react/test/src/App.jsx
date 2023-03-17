@@ -6,6 +6,10 @@ function WelcomeMessage() {
   return <h1>Welcome!</h1>
 } //we add a new function that will be a simple title h1 message (A component)
 
+const buttonPress = (event) => { //here, i create a new constan that will be called when a button is pressed 
+  alert('thank you!! c:')
+}
+
 function App() {
   const [count, setCount] = useState(0)
   const message = 'Guten Tag' //we can make constants and use them in the return to print them in the page
@@ -16,6 +20,7 @@ function App() {
       <img src={reactLogo} className="logo react"></img> {/* we add the image, using the import image from the begining using curly brackets */}
       <h2>{message === 'Hello!' ? 'The message was hello!' : message}</h2> {/* as we said you can use JS inside of the HTML */}
       <button onClick={(event) => alert("YOU PRESS THE BUTTON!!!!!!!!!!!!")}>Don't press it</button> {/* we add an on click event and what to do with that in the same code */}
+      <button onClick={buttonPress}>Press it</button> {/* we can define the event handler o function outside and call it here */}
     </div>
   )
 }
