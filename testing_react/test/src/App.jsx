@@ -15,7 +15,7 @@ function App() {
   //first is the counter, just as we create a constant and the second is a function that modifieds "count"
   const setcounter = () => {
     if (typeof count === "string") {
-      setCount(0)
+      setCount(1)
     } else {setCount(count + 1)}
   }
 
