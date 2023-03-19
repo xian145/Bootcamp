@@ -13,6 +13,11 @@ const buttonPress = (event) => { //here, i create a new constan that will be cal
 function App() {
   const [count, setCount] = useState(0) // they dont need to be called with that name, just an example
   //first is the counter, just as we create a constant and the second is a function that modifieds "count"
+  const setcounter = () => {
+    if (typeof count === "string") {
+      setCount(0)
+    } else {setCount(count + 1)}
+  }
 
   const message = 'Guten Tag' //we can make constants and use them in the return to print them in the page
 
@@ -25,8 +30,9 @@ function App() {
       <button onClick={buttonPress}>Press it</button> {/* we can define the event handler o function outside and call it here */}
       <div> {/* A div which contains buttons that modified a counter and a buttos which reset that cunter. */}
         <p>You clicked {count} time the button clicks</p> {/* wher we can llok for the counter */}
-        <button onClick={() => setCount(count + 1)}>Clicks</button> {/* button with the actual funcion to modified the "count" */}
+        <button onClick={setcounter}>Clicks</button> {/* button which call a function to modified the count with some conditions */}
         <button onClick={() => setCount(0)}>Reset</button> {/* another button to set count to cero */}
+        <button onClick={() => setCount('Abraham')}>Abraham?</button> {/* creating a new funtion that will set the counter to Abraham just bc we can put a string */}
       </div>
     </div>
   )
