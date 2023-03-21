@@ -13,3 +13,6 @@ if i want to add tailwindcss to the project we need to run this in the terminal 
 $ npm install -D tailwindcss postcss autoprefixer
 then
 $ npx tailwindcss init -p
+search for tailwind.config.cjs and add this in the contet field.
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
