@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg' //calling an image from the folder "assets"
-import './App.css'
 
 function WelcomeMessage() { //the name of the function NEED to be with capital letter
   return <h1>Welcome!</h1>
