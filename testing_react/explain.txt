@@ -8,3 +8,8 @@ After that, in the terminal we gonna change folder to the new one created with t
 $ npm install
 $ npm run dev
 if working in more than one place, pls run in every place the "npm install" inside the project folder
+
+if i want to add tailwindcss to the project we need to run this in the terminal inside of the project folder.
+$ npm install -D tailwindcss postcss autoprefixer
+then
+$ npx tailwindcss init -p
