@@ -16,3 +16,8 @@ $ npx tailwindcss init -p
 search for tailwind.config.cjs and add this in the contet field.
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
+then we look for the file index.css remove everything and add this three lines
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+look for the app.css file and eliminaate that
