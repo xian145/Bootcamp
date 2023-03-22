@@ -33,7 +33,7 @@ function AddCategory(props) {
               value={category}
               onChange={handleChange}
             />
-            <button className='flex-no-shrink p-2 border-2 rounded bg-teal bg-green-500 text-white border-teal hover:text-white hover:bg-teal'>
+            <button className='flex-no-shrink p-2 border-2 rounded bg-teal bg-purple-500 text-white border-teal hover:text-green-300 hover:bg-teal'>
               Add
             </button>
           </div>
