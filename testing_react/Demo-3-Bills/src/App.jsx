@@ -18,7 +18,7 @@ function App() {
     <div>
       {shouldShowAddCategory ? ( //look if thats true and if it is render the AddCategory component in the DOM
       <AddCategory
-        onSubmit={addCategory} //this will pass as a prop and can be used inside of it
+        onSubmit={addCategory} //this will pass as a prop and can be used inside of it, dont need to be called onSubmit, but helps to know when will be called
       />
       ) : ( //if not will render NavBar and BillsTable
         <div>

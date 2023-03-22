@@ -16,7 +16,7 @@ function AddCategory(props) {
       return
     }
 
-    props.onSubmit(category) //this will pass the content from category to the parent to add it to an array named categories
+    props.onSubmit(category) //this will pass the content from category to the parent to add it to an array named categories, dont need to be called this way, but helps to know when is called
   }
 
   return (
