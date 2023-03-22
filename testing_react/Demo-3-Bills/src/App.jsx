@@ -13,9 +13,9 @@ function App() {
     } //we are telling that if something need to be stored bc is in localStorage we gonna store it in categories
     
     if (!categories.length) {
-      setShouldShowAddCategory(true)
+      setShouldShowAddCategory(true) //change to true if it is empty so we render AddCategories
     }
-  })
+  }, []) //this empty array will make to run this only one time when the DOM is mounted
 
   const addCategory = (category) => { //function which enter category as a value when called
     const updateCategories = [...(categories || []), category] //const with the empty array that will be filled, have a condition that if its false will give an empty array
