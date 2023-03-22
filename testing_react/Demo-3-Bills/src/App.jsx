@@ -6,7 +6,7 @@ import NavBar from "./components/NavBar"
 function App() {
   return (
     <div>
-      <p className='text-blue-500'>Hello, World!</p>
+      <p className='text-blue-500'>Hello, Worldddddd!</p>
     </div>
   )
 }
