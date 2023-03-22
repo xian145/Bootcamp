@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react" //adding useState to manage states and useEffect to retrieve information from local storage
 import AddBill from "./components/Addbill"
 import AddCategory from "./components/AddCategory"
 import BillsTable from "./components/BillsTables"
@@ -12,6 +12,7 @@ function App() {
     const updateCategories = [...(categories || []), category] //const with the empty array that will be filled, have a condition that if its false will give an empty array
     setCategories(updateCategories) //function to modified the array with the new category
     setShouldShowAddCategory(false) //change to false bc we already add a category and need to be replace we a new render for NavBar and BillsTable
+    localStorage.setItem('categories', JSON.stringify(updateCategories)) //put the item named 'categories' (dont need to be called like this) in a form of a JSON string from the constant updateCategories
   } //new function to add the categories to the array
 
   return (
