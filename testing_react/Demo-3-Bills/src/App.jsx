@@ -5,7 +5,7 @@ import BillsTable from "./components/BillsTables"
 import NavBar from "./components/NavBar"
 
 function App() {
-  const [shouldShowAddCategory, setShouldShowAddCategory] = useState(true)
+  const [shouldShowAddCategory, setShouldShowAddCategory] = useState(false) // change to flase bc this will be checked with useEffect
   const [categories, setCategories] = useState([]) //create a state modifier for categories which are an empty array
   
   useEffect(() => { //this will rin when the DOM is mounted
