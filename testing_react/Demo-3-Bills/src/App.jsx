@@ -4,9 +4,12 @@ import BillsTable from "./components/BillsTables"
 import NavBar from "./components/NavBar"
 
 function App() {
+  const [shouldShowAddCategory, setShouldShowAddCategory] = useState(true)
+  
   return (
     <div>
-      <p className='text-blue-500'>Hello, Worldddddd!</p>
+      <NavBar />
+      <BillsTable />
     </div>
   )
 }
