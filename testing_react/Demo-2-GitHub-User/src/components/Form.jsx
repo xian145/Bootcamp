@@ -29,7 +29,7 @@ function Form(props) {
           className='form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300'
         /> {/* form input, is a block, width all, padding en Y axis 2, padding on X axis 3, with border, border gray, rounded corners, with shadow, on focus outline none, on focues shadow change to blue, on focus border change blue */}
         {/* the input have a state named "username" (diferent to name='usename' this is a label) which will be used to use our API */}
-        {/* we gonna look to any change on the input and take that change and put it in value (that what onChange do) */}
+        {/* we gonna look to any change on the input and take that change and put it in value that is username (that what onChange do) */}
         <button
           type='submit'
           className='ml-2 py-2 px-3 border border-gray-300 rounded-md text-sm leading-4 font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800'>
