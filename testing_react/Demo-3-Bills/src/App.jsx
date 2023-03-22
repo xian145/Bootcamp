@@ -15,7 +15,7 @@ function App() {
       setCategories(categoriesInLocalStorage) //store it in categories (the one defined in useState as an empty array)
     } //we are telling that if something need to be stored bc is in localStorage we gonna store it in categories
     
-    if (!categoriesInLocalStorage) { //if there is nothing here change to true
+    if (!categoriesInLocalStorage) { //if there is nothing here, change to true
       setShouldShowAddCategory(true) //change to true if it is empty so we render AddCategories
     } //this will run over the useState defined first
   }, []) //this empty array will make to run this only one time when the DOM is mounted
