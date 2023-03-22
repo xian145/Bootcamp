@@ -10,7 +10,7 @@ function Form(props) {
     if (response.status === 200){ //look if that username exists
       const data = await response.json()
       props.onSubmit(data) //this will pass to the parent the data we get from fetch
-      setUsername('')
+      setUsername('') //this will clear the username
     } else { //if not send an alert to the user
       alert('Username not Found')
     }
