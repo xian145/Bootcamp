@@ -9,15 +9,14 @@ function App() {
   const [categories, setCategories] = useState([]) //create a state modifier for categories which are an empty array
   
   useEffect(() => { //this will rin when the DOM is mounted
-    const categoriesInLocalStorage = JSON.parse(localStorage.getItem(categories)) //interpret as a JSON with JSON.parse
-
+    const categoriesInLocalStorage = JSON.parse(localStorage.getItem('categories')) //interpret as a JSON with JSON.parse the value with the key 'categories'
+    console.log(categoriesInLocalStorage);
     if (categoriesInLocalStorage !== categories) { //if there is something to be store that is not stored yet...
       setCategories(categoriesInLocalStorage) //store it in categories (the one defined in useState as an empty array)
     } //we are telling that if something need to be stored bc is in localStorage we gonna store it in categories
     
     if (!categoriesInLocalStorage) { //if there is nothing here, change to true
       setShouldShowAddCategory(true) //change to true if it is empty so we render AddCategories
-      console.log(categoriesInLocalStorage);
     } //this will run over the useState defined first
   }, []) //this empty array will make to run this only one time when the DOM is mounted
 
@@ -25,7 +24,7 @@ function App() {
     const updateCategories = [...(categories || []), category] //const with the empty array that will be filled, have a condition that if its false will give an empty array
     setCategories(updateCategories) //function to modified the array with the new category
     setShouldShowAddCategory(false) //change to false bc we already add a category and need to be replace we a new render for NavBar and BillsTable
-    localStorage.setItem('categories', JSON.stringify(updateCategories)) //put the item named 'categories' (dont need to be called like this) in a form of a JSON string from the constant updateCategories
+    localStorage.setItem('categories', JSON.stringify(updateCategories)) //use the key 'categories' (dont need to be called like this) to save the value as a JSON string from the constant updateCategories
   } //new function to add the categories to the array
 
   return (
