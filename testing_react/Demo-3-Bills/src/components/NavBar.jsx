@@ -7,6 +7,7 @@ function NavBar(props) {
       })
       : '<li>No categories</li>' //if there is nothing in the props.categories gonna make a list item with 'no categories'
       }
+      <li onClick={props.showAddCategory}>+</li> {/* when pressed add a value in categories array */}
     </ul>
   )
 }

@@ -7,6 +7,9 @@ import NavBar from "./components/NavBar"
 function App() {
   const [shouldShowAddCategory, setShouldShowAddCategory] = useState(false) // change to flase bc this will be checked with useEffect
   const [categories, setCategories] = useState([]) //create a state modifier for categories which are an empty array
+  const showAddCategory = () => {
+    setShouldShowAddCategory(true)
+  }
   
   useEffect(() => { //this will rin when the DOM is mounted
     const categoriesInLocalStorage = JSON.parse(localStorage.getItem('categories')) //interpret as a JSON with JSON.parse the value with the key 'categories'
@@ -36,6 +39,7 @@ function App() {
         <div>
           <NavBar 
             categories={categories} //we send as a prop the categories we have already saved
+            showAddCategory={showAddCategory}
           />
           <BillsTable />
         </div>
