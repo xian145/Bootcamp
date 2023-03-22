@@ -23,7 +23,7 @@ function AddCategory(props) {
     <form
       className='h-100 w-full flex items-center justify-center font-sans'
       onSubmit={handleSubmit}>
-      <div className='bg-white rounded shadow p-6 m-4 w-full lg:w-3/4 lg:max-w-lg'>
+      <div className='bg-white rounded shadow-lg p-6 m-4 w-full lg:w-3/4 sm:max-w-lg'>
         <div className='mb-4'>
           <h1 className='text-grey-darkest'>Enter a category of bills</h1>
           <div className='flex mt-4'>
