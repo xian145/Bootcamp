@@ -9,6 +9,8 @@ function Form(props) {
     const response = await fetch(`https://api.github.com/users/${username}`) //here use the input of the form
     if (response.status === 200){ //look if that username exists
       const data = await response.json()
+      props.onSubmit(data) //this will pass to the parent the data we get from fetch
+      setUsername('')
     } else { //if not send an alert to the user
       alert('Username not Found')
     }
