@@ -9,7 +9,7 @@ function App() {
   const [categories, setCategories] = useState([]) //create a state modifier for categories which are an empty array
 
   const addCategory = (category) => { //function which enter category as a value when called
-    const updateCategories = [...(categories || []), category] //const with the empty array that will be filled
+    const updateCategories = [...(categories || []), category] //const with the empty array that will be filled, have a condition that if its false will give an empty array
     setCategories(updateCategories) //function to modified the array with the new category
     setShouldShowAddCategory(false) //change to false bc we already add a category and need to be replace we a new render for NavBar and BillsTable
   } //new function to add the categories to the array
@@ -17,7 +17,9 @@ function App() {
   return (
     <div>
       {shouldShowAddCategory ? ( //look if thats true and if it is render the AddCategory component in the DOM
-      <AddCategory/>
+      <AddCategory
+        onSubmit={addCategory} //this will pass as a prop and can be used inside of it
+      />
       ) : ( //if not will render NavBar and BillsTable
         <div>
           <NavBar />
