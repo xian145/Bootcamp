@@ -5,8 +5,10 @@ const CardList = (props) => {
         <div>
           {props.cards.map((card, index) => (
             <Card key={index} {...card} />
-          ))} {/* this will vreate a div for every item inside of card using .map which will pass 'card' and 'index' and every div will be rendering a 'Card' component we create before with the prop key that will be the index in .map*/}
-        {/* cards is a prop sended from the app */}
+          ))} {/* prop.cards.map gonna run for every component in the array cards (that is actually data with json) and create a card sending prop key which is the unique 
+          index created with map starting from 0 and the data in form of json */}
+          {/* this gonna call Card */}
+          {/* cards is a prop sended from the app */}
         </div>
     )
 }
