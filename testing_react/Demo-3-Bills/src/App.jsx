@@ -9,9 +9,9 @@ function App() {
 
   return (
     <div>
-      {shouldShowAddCategory ? (
+      {shouldShowAddCategory ? ( //look if thats true and if it is render the AddCategory component in the DOM
       <AddCategory/>
-      ) : (
+      ) : ( //if not will render NavBar and BillsTable
         <div>
           <NavBar />
           <BillsTable />
