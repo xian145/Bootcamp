@@ -1,3 +1,8 @@
+import AddBill from "./components/Addbill"
+import AddCategory from "./components/AddCategory"
+import BillsTable from "./components/BillsTables"
+import NavBar from "./components/NavBar"
+
 function App() {
   return (
     <div>
