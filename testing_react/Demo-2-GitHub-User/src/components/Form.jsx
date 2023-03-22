@@ -3,8 +3,21 @@ import { useState } from "react" //to modified states
 function Form(props) {
   const [username, setUsername] = useState('') //the way we gonna change the state 'username'
 
+  const handleSubmit = async (event) => { //this functions is called when you submit the form, gonna take that event and take the value of the username to fetch the information
+    event.preventDefault() //dont reload the page
+
+    const response = await fetch(`https://api.github.com/users/${username}`) //here use the input of the form
+    if (response.status === 200){ //look if that username exists
+      const data = await response.json()
+    } else { //if not send an alert to the user
+      alert('Username not Found')
+    }
+  }
+
   return (
-    <form className='w-full max-w-sm mx-auto'> {/* width all, max width and adapt for font size, center the container */}
+    <form className='w-full max-w-sm mx-auto'
+    onSubmit={handleSubmit}> {/* width all, max width and adapt for font size, center the container */}
+    {/* on submit gonna call the funtion "handleSubmit" */}
       <div className='mt-10 flex'> {/* margin top 10 and flex */}
         <input
           name='username'
