@@ -6,7 +6,7 @@ function App() {
   const [cards, setCards] = useState([]) //instead of modified one card, we gonna create an array of cards
   
   const addNewCard = (cardInfo) => {
-    setCards([...cards, cardInfo])
+    setCards([...cards, cardInfo]) //modified the array with the same array as we have and then add in last position the new information
   }
   
   return (
