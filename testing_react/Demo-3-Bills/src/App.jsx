@@ -6,6 +6,7 @@ import NavBar from "./components/NavBar"
 
 function App() {
   const [shouldShowAddCategory, setShouldShowAddCategory] = useState(true)
+  const [categories, setCaries] = useState([]) //create a state modifier for categories which are an empty array
 
   return (
     <div>
