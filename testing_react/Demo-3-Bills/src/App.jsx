@@ -34,7 +34,9 @@ function App() {
       />
       ) : ( //if not will render NavBar and BillsTable
         <div>
-          <NavBar />
+          <NavBar 
+            categories={categories} //we send as a prop the categories we have already saved
+          />
           <BillsTable />
         </div>
       )}
