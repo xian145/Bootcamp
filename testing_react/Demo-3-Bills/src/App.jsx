@@ -7,12 +7,15 @@ import NavBar from "./components/NavBar"
 function App() {
   const [shouldShowAddCategory, setShouldShowAddCategory] = useState(true)
   const [categories, setCategories] = useState([]) //create a state modifier for categories which are an empty array
-  useEffect(() => {
-    if (localStorage.getItem('categories')) { //if there is something to get stored...
-      setCategories(localStorage.getItem('categories')) //store it in categories (the one defined in useState as an empty array)
+  
+  useEffect(() => { //this will rin when the DOM is mounted
+    const categoriesInLocalStorage = JSON.parse(localStorage.getItem(categories)) //interpret as a JSON with JSON.parse
+
+    if (categoriesInLocalStorage !== categories) { //if there is something to be store that is not stored yet...
+      setCategories(categoriesInLocalStorage) //store it in categories (the one defined in useState as an empty array)
     } //we are telling that if something need to be stored bc is in localStorage we gonna store it in categories
     
-    if (!categories.length) {
+    if (!categoriesInLocalStorage) { //if there is nothing here change to true
       setShouldShowAddCategory(true) //change to true if it is empty so we render AddCategories
     }
   }, []) //this empty array will make to run this only one time when the DOM is mounted
