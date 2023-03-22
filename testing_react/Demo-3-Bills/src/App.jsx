@@ -17,6 +17,7 @@ function App() {
     
     if (!categoriesInLocalStorage) { //if there is nothing here, change to true
       setShouldShowAddCategory(true) //change to true if it is empty so we render AddCategories
+      console.log(categoriesInLocalStorage);
     } //this will run over the useState defined first
   }, []) //this empty array will make to run this only one time when the DOM is mounted
 
