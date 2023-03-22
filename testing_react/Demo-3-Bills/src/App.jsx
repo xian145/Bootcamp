@@ -10,7 +10,6 @@ function App() {
   
   useEffect(() => { //this will rin when the DOM is mounted
     const categoriesInLocalStorage = JSON.parse(localStorage.getItem('categories')) //interpret as a JSON with JSON.parse the value with the key 'categories'
-    console.log(categoriesInLocalStorage);
     if (categoriesInLocalStorage !== categories) { //if there is something to be store that is not stored yet...
       setCategories(categoriesInLocalStorage) //store it in categories (the one defined in useState as an empty array)
     } //we are telling that if something need to be stored bc is in localStorage we gonna store it in categories
