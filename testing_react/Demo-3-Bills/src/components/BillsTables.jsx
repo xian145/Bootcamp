@@ -1,6 +1,10 @@
 import React from 'react'
 
 function BillsTable(props) {
+  const triggerShowAddBill = () => {
+    props.showAddBill()
+  }
+
   return (
     <table className="table w-full">
       <thead className="text-left">{/* used to group table headers */}
@@ -12,6 +16,13 @@ function BillsTable(props) {
         </tr>
       </thead>
       <tbody>
+        <tr>
+          <td colSpan='4' className='text-center pt-5'>
+            <button className='underline' onClick={triggerShowAddBill}>
+              Add Bill
+            </button>
+          </td>
+        </tr>
         {props.bills?.map((value, index)=>{ //its something in bills? then map the content and return a table row with the next information on it
           return (
             <tr className="p4" key={index}>{/* this key is unique to each element, bring from index */}
