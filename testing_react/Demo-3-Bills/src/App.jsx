@@ -79,16 +79,13 @@ function App() {
           setNewActiveCategory={setNewActiveCategory}
           categories={categories} 
           showAddCategory={showAddCategory} />
-          <div className="container flex">
-            <div className="w-1/2">
+          <div className="flex">
+            <div className="w-full">
               <BillsTable 
                 bills={activeBills()}
                 showAddBill={showAddBill}
                 removeBill={removeBill}
               />
-            </div>
-            <div className="w-1/2">
-              <p>placeholder</p>
             </div>
           </div>
         </div>

@@ -26,7 +26,9 @@ function BillsTable(props) {
               <td>{new Date(value.date).toLocaleDateString()}</td>{/* the date when created, with .toLocaleDateString() convert from machine type to a human string type */}
               <td>${value.amount}</td>{/* the amount to pay */}
               <td>{value.category}</td>{/* the category realated */}
-              <td><button onClick={() => removeBill(index)}>x</button></td>{/* this will remove a bill, calling a function that will pass the index value, which is unique to each elemnt */}
+              <td><button 
+              className='border-solid rounded-lg p-4 border-2 hover:bg-red-200'
+              onClick={() => removeBill(index)}>x</button></td>{/* this will remove a bill, calling a function that will pass the index value, which is unique to each elemnt */}
             </tr>
           )
         })}
