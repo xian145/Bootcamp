@@ -22,7 +22,9 @@ function App() {
       setCategories(categoriesInLocalStorage) //store it in categories (the one defined in useState as an empty array)
     } //we are telling that if something need to be stored bc is in localStorage we gonna store it in categories
 
-    setBills(billsInLocalStorage)
+    if (billsInLocalStorage !== bills) {
+      setBills(billsInLocalStorage)
+    }
     
     if (!categoriesInLocalStorage) { //if there is nothing here, change to true
       setShouldShowAddCategory(true) //change to true if it is empty so we render AddCategories
