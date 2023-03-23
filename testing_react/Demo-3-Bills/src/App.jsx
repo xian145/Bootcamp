@@ -42,12 +42,12 @@ function App() {
     localStorage.setItem('categories', JSON.stringify(updateCategories)) //use the key 'categories' (dont need to be called like this) to save the value as a JSON string from the constant updateCategories
   } //new function to add the categories to the array
 
-  const addBill = (amount, category, date) => {
-    const bill = {amount, category, date}
-    const updatedBills = [...(bills || []), bill]
-    setBills(updatedBills)
-    setShouldShowAddBill(false)
-    localStorage.setItem('bills', JSON.stringify(updatedBills))
+  const addBill = (amount, category, date) => { //funtion that enter amount form AddBill component, category from AddCateory and date from AddBill
+    const bill = {amount, category, date} //this an object with amount, category and date
+    const updatedBills = [...(bills || []), bill] //every time we add a new amount with any category this array will be updated with the last object plus the new one
+    setBills(updatedBills) //bills its modified with the value inside of updateBills
+    setShouldShowAddBill(false) //change to false bc we already add a new amount
+    localStorage.setItem('bills', JSON.stringify(updatedBills)) //usgin the key 'bills' to store in local sotrage as a string JSON so we can call it after in useEffect hook
   }
 
   return (
@@ -55,7 +55,7 @@ function App() {
       {shouldShowAddCategory ? ( //if there is not any category this will be true
         <AddCategory onSubmit={addCategory} /> //render to add one category
       ) : shouldShowAddBill ? ( //if its already at least one category will ask if there is al least one bill
-        <AddBill onSubmit={addBill} categories={categories} /> //if there is no bill will render the option to render it, and pass as a props the onSubmit with the funtion addBill and categories
+        <AddBill onSubmit={addBill} categories={categories} /> //if there is no bill will render the option to render it, and pass as a props the onSubmit with the function addBill and categories
       ) : ( // if its already at least one bill will render the rest
         <div>
           <NavBar categories={categories} showAddCategory={showAddCategory} />
