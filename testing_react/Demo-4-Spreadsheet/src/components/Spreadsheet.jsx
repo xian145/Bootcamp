@@ -14,7 +14,7 @@ export default function Spreadsheet() {
   ])
 
   return (
-    <div>
+    <div className={`grid grid-cols-${data[0].length}`}> {/* js code returns the lenght of the first array in teh array */}
       {data.map((row, y) => { //data is the array of 8 arrays with 4 items each, with a total of 32 elements, so this will map each 32 elements
         // 'row' is the array inside of the array and 'y' is the index of the array inside the array
         return row.map((cell, x) => { //run for every element inside the array for each array
