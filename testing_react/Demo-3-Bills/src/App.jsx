@@ -8,19 +8,29 @@ function App() {
   const [shouldShowAddCategory, setShouldShowAddCategory] = useState(false) // change to flase bc this will be checked with useEffect
   const [categories, setCategories] = useState([]) //create a state modifier for categories which are an empty array
   const [bills, setBills] = useState([])
+  const [shouldShowAddBill, setShouldShowAddBill] = useState(true) //similar to should category, if we have something to show, will render
+
   const showAddCategory = () => {
     setShouldShowAddCategory(true)
   }
   
   useEffect(() => { //this will rin when the DOM is mounted
     const categoriesInLocalStorage = JSON.parse(localStorage.getItem('categories')) //interpret as a JSON with JSON.parse the value with the key 'categories'
+    const billsInLocalStorage = JSON.parse(localStorage.getItem('bills')) //similar as above but for bills, now we use the kew "bills" instead of 'categories'
+
     if (categoriesInLocalStorage !== categories) { //if there is something to be store that is not stored yet...
       setCategories(categoriesInLocalStorage) //store it in categories (the one defined in useState as an empty array)
     } //we are telling that if something need to be stored bc is in localStorage we gonna store it in categories
+
+    setBills(billsInLocalStorage)
     
     if (!categoriesInLocalStorage) { //if there is nothing here, change to true
       setShouldShowAddCategory(true) //change to true if it is empty so we render AddCategories
     } //this will run over the useState defined first
+
+    if (!billsInLocalStorage) {
+      setShouldShowAddBill(true)
+    }
   }, []) //this empty array will make to run this only one time when the DOM is mounted
 
   const addCategory = (category) => { //function which enter category as a value when called
