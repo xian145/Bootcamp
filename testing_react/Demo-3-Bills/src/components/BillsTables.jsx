@@ -5,6 +5,10 @@ function BillsTable(props) {
     props.showAddBill()
   }
 
+  const removeBill = (index) => {
+    props.removeBill
+  }
+
   return (
     <table className="table w-full">
       <thead className="text-left">{/* used to group table headers */}
@@ -16,6 +20,16 @@ function BillsTable(props) {
         </tr>
       </thead>
       <tbody>
+        {props.bills?.map((value, index)=>{ //its something in bills? then map the content and return a table row with the next information on it
+          return (
+            <tr className="p4" key={index}>{/* this key is unique to each element, bring from index */}
+              <td>{new Date(value.date).toLocaleDateString()}</td>{/* the date when created, with .toLocaleDateString() convert from machine type to a human string type */}
+              <td>${value.amount}</td>{/* the amount to pay */}
+              <td>{value.category}</td>{/* the category realated */}
+              <td><button onClick={removeBill(index)}>x</button></td>
+            </tr>
+          )
+        })}
         <tr>
           <td colSpan='4' className='text-center pt-5'>
             <button className='underline' onClick={triggerShowAddBill}>
@@ -23,15 +37,6 @@ function BillsTable(props) {
             </button>
           </td>
         </tr>
-        {props.bills?.map((value, index)=>{ //its something in bills? then map the content and return a table row with the next information on it
-          return (
-            <tr className="p4" key={index}>{/* this key is unique to each element, bring from index */}
-              <td>{new Date(value.date).toLocaleDateString()}</td>{/* the date when created, with .toLocaleDateString() convert from machine type to a human string type */}
-              <td>${value.amount}</td>{/* the amount to pay */}
-              <td>{value.category}</td>{/* the category realated */}
-            </tr>
-          )
-        })}
       </tbody>
     </table>
   )
