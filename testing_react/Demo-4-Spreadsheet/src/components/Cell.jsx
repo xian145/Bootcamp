@@ -4,8 +4,8 @@ function Cell() {
   const [isSelected, setIsSelected] = useState(false)
 
   useEffect(() => {
-    window.document.addEventListener('unselectAll', () => {
-      setIsSelected(false)
+    window.document.addEventListener('unselectAll', () => { //we listen thor the trigger event and then
+      setIsSelected(false) //we set isSelected  to false so the input change to a div
     })
   }, []) //only execute when render the DOM
 
@@ -17,7 +17,7 @@ function Cell() {
 
   return <div
   onClick={(event) => {
-  window.document.dispatchEvent(new Event('unselectAll'))
+  window.document.dispatchEvent(new Event('unselectAll')) //custom event named 'unselectAll triggered when we click
   {setIsSelected(true)}}
   } //change to true if we click it
   className={cellStyle}
