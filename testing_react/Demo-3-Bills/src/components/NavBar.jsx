@@ -12,7 +12,7 @@ function NavBar(props) {
       ? props.categories.map((value, index) => {
         return <li key={index}
         className={liStyle +
-                  (props.activeCategory === index //if the active category is iqual to the index of this category will change the bg color to dark gray
+                    (props.activeCategory === index //if the active category is iqual to the index of this category will change the bg color to dark gray
                     ? ' bg-gray-dark'
                     : ' bg-gray-lighter')}
         onClick={() => setNewActiveCategory(value)}
@@ -20,6 +20,16 @@ function NavBar(props) {
       })
       : '<li>No categories</li>' //if there is nothing in the props.categories gonna make a list item with 'no categories'
       }
+      <li
+        className={
+          liStyle +
+          (props.activeCategory === '' || props.activeCategory === undefined
+          ? ' bg-grey-dark'
+          : ' bg-grey-lighter')
+        }
+        onClick={() => setNewActiveCategory('')}>
+        All
+      </li>
       <li onClick={props.showAddCategory}
       className={buttonStyle}
       >+</li> {/* when pressed add a value in categories array */}
