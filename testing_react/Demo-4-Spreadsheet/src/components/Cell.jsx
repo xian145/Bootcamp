@@ -3,7 +3,7 @@ import { useState } from "react"
 function Cell() {
   const [isSelected, setIsSelected] = useState(false)
 
-  const cellStyle = 'border-2 p-3'
+  const cellStyle = 'border-2 p-3 cursor-pointer hover:bg-gray-300 focus:bg-green-100'
 
   if (isSelected) { //if its true will change the div to an input
     return <input className={cellStyle}/>
