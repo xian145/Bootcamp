@@ -14,6 +14,10 @@ function App() {
     setShouldShowAddCategory(true)
   }
   
+  const showAddBill = () => {
+    setShouldShowAddBill(true)
+  }
+
   useEffect(() => { //this will rin when the DOM is mounted
     const categoriesInLocalStorage = JSON.parse(localStorage.getItem('categories')) //interpret as a JSON with JSON.parse the value with the key 'categories'
     const billsInLocalStorage = JSON.parse(localStorage.getItem('bills')) //similar as above but for bills, now we use the kew "bills" instead of 'categories'
@@ -58,6 +62,7 @@ function App() {
             <div className="w-1/2">
               <BillsTable 
                 bills={bills}
+                showAddBill={showAddBill}
               />
             </div>
             <div className="w-1/2">
