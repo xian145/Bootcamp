@@ -7,6 +7,7 @@ import NavBar from "./components/NavBar"
 function App() {
   const [shouldShowAddCategory, setShouldShowAddCategory] = useState(false) // change to flase bc this will be checked with useEffect
   const [categories, setCategories] = useState([]) //create a state modifier for categories which are an empty array
+  const [bills, setBills] = useState([])
   const showAddCategory = () => {
     setShouldShowAddCategory(true)
   }
