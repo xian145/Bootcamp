@@ -3,8 +3,8 @@ function NavBar(props) {
     props.setNewActiveCategory(index)
   } //this will call the function passed from the parent and send the index of the category
 
-  const liStyle = 'p-4 hover:bg-gray-200 uppercase font-black cursor-pointer'
-  const buttonStyle = 'p-4 inline hover:bg-green-200 uppercase font-black cursor-pointer'
+  const liStyle = 'p-4 hover:bg-gray-200 uppercase font-black cursor-pointer border border-solid rounded-2xl'
+  const buttonStyle = 'p-4 inline hover:bg-green-200 uppercase font-black cursor-pointer border border-solid rounded-2xl border-green-300'
 
   return (
     <ul className='flex justify-center border-b-4 mb-0'> {/* we return a list */}
@@ -12,9 +12,9 @@ function NavBar(props) {
       ? props.categories.map((value, index) => {
         return <li key={index}
         className={liStyle +
-                    (props.activeCategory === index //if the active category is iqual to the index of this category will change the bg color to dark gray
-                    ? ' bg-gray-dark'
-                    : ' bg-gray-lighter')}
+                    (props.activeCategory === value //if the active category is iqual to the index of this category will change the bg color to dark gray
+                    ? ' bg-gray-400'
+                    : '')}
         onClick={() => setNewActiveCategory(value)}
         >{value}</li> //if its something in props.categories gonna make a list item for each value and give a key with the index of the item to each list item
       })
@@ -22,10 +22,10 @@ function NavBar(props) {
       }
       <li
         className={
-          liStyle +
+          buttonStyle +
           (props.activeCategory === '' || props.activeCategory === undefined
-          ? ' bg-grey-dark'
-          : ' bg-grey-lighter')
+          ? ' bg-green-400'
+          : '')
         }
         onClick={() => setNewActiveCategory('')}>
         All
