@@ -64,7 +64,7 @@ function App() {
               <BillsTable />
             </div>
             <div className="w-1/2">
-              <Chart />
+              <p>placeholder</p>
             </div>
           </div>
         </div>
