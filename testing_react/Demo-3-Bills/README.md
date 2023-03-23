@@ -14,3 +14,5 @@ const [date, setDate] = useState(new Date())
 const handleChangeDate = e => {
   setDate(e.target.value)
 }
+
+this project use localStorage for tehy functionality, if you need to work with localStorage you can see what I did
