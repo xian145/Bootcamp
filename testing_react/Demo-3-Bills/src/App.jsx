@@ -70,11 +70,15 @@ function App() {
         <AddBill onSubmit={addBill} categories={categories} /> //if there is no bill will render the option to render it, and pass as a props the onSubmit with the function addBill and categories
       ) : ( // if its already at least one bill will render the rest
         <div>
-          <NavBar categories={categories} showAddCategory={showAddCategory} />
+          <NavBar
+          activeCategory={activeCategory}
+          setNewActiveCategory={setNewActiveCategory}
+          categories={categories} 
+          showAddCategory={showAddCategory} />
           <div className="container flex">
             <div className="w-1/2">
               <BillsTable 
-                bills={bills}
+                bills={activeBills()}
                 showAddBill={showAddBill}
                 removeBill={removeBill}
               />
