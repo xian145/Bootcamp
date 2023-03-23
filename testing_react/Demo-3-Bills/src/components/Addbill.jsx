@@ -1,8 +1,11 @@
 import { useState } from 'react'
+import DatePicker from 'react-datepicker' //for datepicker
+import 'react-datepicker/dist/react-datepicker.css' //for datepicker
 
 function AddBill(props) {
   const [amount, setAmount] = useState(0)
   const [category, setCategory] = useState(props.categories[0]) //will call the categories array from the parent in the first value of teh array
+  const [date, setDate] = useState(new Date()) //so we get the date
 
   const handleChangeAmount = (event) => {
 		let newAmount = parseInt(event.target.value, 10) //variable taht will take the value of the amount in input but entered as a number 
@@ -18,7 +21,11 @@ function AddBill(props) {
       return
     }
 
-    props.onSubmit(amount) //this is a function called from the parent app.jsx that is sended as a props to the child
+    props.onSubmit(amount, category || props.categories[0], date) //this is a function called from the parent app.jsx that is sended as a props to the child
+  } //if there is no set we deafault to the first category
+
+  const handleChangeDate = (event) => {
+    setDate(event.target.value) //on change we look for the date on change and set it in the value {date}
   }
 
   return (
@@ -38,7 +45,7 @@ function AddBill(props) {
             />
             <select onChange={(event) => setCategory(event.target.value)}> {/* on change gonna purt the  */}
               {props.categories
-                ? props.categories.map((value, index) => { //if we have a categorie, gonna map each value and return each one as a option to pick
+                ? props.categories.map((value, index) => { //if we have a category, gonna map each value and return for each one as a option to pick
                     return (
                       <option key={index} value={value}>
                         {value}
@@ -48,7 +55,7 @@ function AddBill(props) {
                 : ''} {/* if there is no category on categories, just will show a blank space */}
             </select>
             <div className='mt-2 ml-1'>
-              <DatePicker selected={date} onChange={handleChangeDate} />
+              <DatePicker selected={date} onChange={handleChangeDate} /> {/* this will show the date when we introduce the amount */}
             </div>
             <button className='flex-no-shrink p-2 border-2 rounded bg-teal bg-green-500 text-white border-teal hover:text-white hover:bg-teal'>
               Add
