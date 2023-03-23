@@ -9,6 +9,7 @@ function App() {
   const [categories, setCategories] = useState([]) //create a state modifier for categories which are an empty array
   const [bills, setBills] = useState([])
   const [shouldShowAddBill, setShouldShowAddBill] = useState(false) //similar to should category, if we have something to show, will render
+  const [activeCategory, setActiveCategory] = useState('') //this will help us to show only the category we select in the NavBar
 
   const showAddCategory = () => {
     setShouldShowAddCategory(true)
@@ -50,12 +51,16 @@ function App() {
   }
 
   const removeBill = (index) => {
-    console.log(index)
     let updatedBills = [...bills]
-    updatedBills = updatedBills.slice(0, index).concat(updatedBills.slice(index + 1, updatedBills.length))
-    setBills(updatedBills)
-    localStorage.setItem('bills', JSON.stringify(updatedBills))
+    updatedBills = updatedBills.slice(0, index).concat(updatedBills.slice(index + 1, updatedBills.length)) //this will slice the array from 0 to the index we want to delete,
+    //since the last number is not includes, this will cut the index of the elemtn i want to delet, and wil concatenate with the same array but from the index slected plus one to the legnth of the array, deleting the bill i selected
+    setBills(updatedBills) //update the list of bills using the seBills state manager
+    localStorage.setItem('bills', JSON.stringify(updatedBills)) //modified the local storage with the new value for the key "bills"
   }
+
+  const activeBills = () => {
+    return bills?.filter(bill => activeCategory ? bill.category === activeCategory : true).sort((a, b) => (new Date(a.date) < new Date(b.date) ? 1 : -1))
+  } //this function will filter ussing the category selected
 
   return (
     <div className="App">
