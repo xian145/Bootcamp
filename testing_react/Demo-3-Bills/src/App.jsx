@@ -49,6 +49,14 @@ function App() {
     localStorage.setItem('bills', JSON.stringify(updatedBills)) //usgin the key 'bills' to store in local sotrage as a string JSON so we can call it after in useEffect hook
   }
 
+  const removeBill = (index) => {
+    console.log(index)
+    let updatedBills = [...bills]
+    updatedBills = updatedBills.slice(0, index).concat(updatedBills.slice(index + 1, updatedBills.length))
+    setBills(updatedBills)
+    localStorage.setItem('bills', JSON.stringify(updatedBills))
+  }
+
   return (
     <div className="App">
       {shouldShowAddCategory ? ( //if there is not any category this will be true
@@ -63,6 +71,7 @@ function App() {
               <BillsTable 
                 bills={bills}
                 showAddBill={showAddBill}
+                removeBill={removeBill}
               />
             </div>
             <div className="w-1/2">
