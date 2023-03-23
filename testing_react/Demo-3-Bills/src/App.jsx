@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react" //adding useState to manage states and useEffect to retrieve information from local storage
-import AddBill from "./components/Addbill"
+import AddBill from "./components/AddBill"
 import AddCategory from "./components/AddCategory"
 import BillsTable from "./components/BillsTables"
 import NavBar from "./components/NavBar"
@@ -42,19 +42,31 @@ function App() {
     localStorage.setItem('categories', JSON.stringify(updateCategories)) //use the key 'categories' (dont need to be called like this) to save the value as a JSON string from the constant updateCategories
   } //new function to add the categories to the array
 
+  const addBill = (amount, category, date) => {
+    const bill = {amount, category, date}
+    const updatedBills = [...(bills || []), bill]
+    setBills(updatedBills)
+    setShouldShowAddBill(false)
+    localStorage.setItem('bills', JSON.stringify(updatedBills))
+  }
+
   return (
-    <div>
-      {shouldShowAddCategory ? ( //look if thats true and if it is render the AddCategory component in the DOM
-      <AddCategory
-        onSubmit={addCategory} //this will pass as a prop and can be used inside of it, dont need to be called onSubmit, but helps to know when will be called
-      />
-      ) : ( //if not will render NavBar and BillsTable
+    <div className="App">
+      {shouldShowAddCategory ? ( //if there is not any category this will be true
+        <AddCategory onSubmit={addCategory} /> //render to add one category
+      ) : shouldShowAddBill ? ( //if its already at least one category will ask if there is al least one bill
+        <AddBill onSubmit={addBill} categories={categories} /> //if there is no bill will render the option to render it, and pass as a props the onSubmit with the funtion addBill and categories
+      ) : ( // if its already at least one bill will render the rest
         <div>
-          <NavBar 
-            categories={categories} //we send as a prop the categories we have already saved
-            showAddCategory={showAddCategory}
-          />
-          <BillsTable />
+          <NavBar categories={categories} showAddCategory={showAddCategory} />
+          <div className="container flex">
+            <div className="w-1/2">
+              <BillsTable />
+            </div>
+            <div className="w-1/2">
+              <Chart />
+            </div>
+          </div>
         </div>
       )}
     </div>

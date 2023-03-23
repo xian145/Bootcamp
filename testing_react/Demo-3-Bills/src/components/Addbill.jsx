@@ -43,7 +43,7 @@ function AddBill(props) {
               value={amount}
               onChange={handleChangeAmount}
             />
-            <select onChange={(event) => setCategory(event.target.value)}> {/* on change gonna purt the  */}
+            <select onChange={(event) => setCategory(event.target.value)}> {/* on change gonna put all the option bringed from categories */}
               {props.categories
                 ? props.categories.map((value, index) => { //if we have a category, gonna map each value and return for each one as a option to pick
                     return (
@@ -57,7 +57,7 @@ function AddBill(props) {
             <div className='mt-2 ml-1'>
               <DatePicker selected={date} onChange={handleChangeDate} /> {/* this will show the date when we introduce the amount */}
             </div>
-            <button className='flex-no-shrink p-2 border-2 rounded bg-teal bg-green-500 text-white border-teal hover:text-white hover:bg-teal'>
+            <button className='flex-no-shrink p-2 border-2 rounded bg-teal bg-purple-500 text-white border-teal hover:text-green-300 hover:bg-teal'>
               Add
             </button>
           </div>
