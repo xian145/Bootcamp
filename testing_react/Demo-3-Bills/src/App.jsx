@@ -19,6 +19,10 @@ function App() {
     setShouldShowAddBill(true)
   }
 
+  const setNewActiveCategory = index => {
+    setActiveCategory(index)
+  }
+
   useEffect(() => { //this will rin when the DOM is mounted
     const categoriesInLocalStorage = JSON.parse(localStorage.getItem('categories')) //interpret as a JSON with JSON.parse the value with the key 'categories'
     const billsInLocalStorage = JSON.parse(localStorage.getItem('bills')) //similar as above but for bills, now we use the kew "bills" instead of 'categories'
