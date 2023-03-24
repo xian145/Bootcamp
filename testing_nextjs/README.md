@@ -9,3 +9,5 @@ exprimental app. directory No
 ENTER
 
 When run with "npm run dev" will appear .next folder
+
+When we creat a new js file with a "name" it will automatically create that page in our project, just need to type "localhost:3000/'name'"
