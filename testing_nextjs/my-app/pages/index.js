@@ -4,9 +4,8 @@ export default function Home() {
   return (
     <div>
       <h1>Home page</h1>
-      <Link href="/blog">Blog</Link><br />
-      <Link href="/new">New index</Link><br />
-      <Link href="/new/newblog">New blog</Link>
+      <Link href="/blog">New index in blog</Link><br />
+      <Link href="/blog/newblog">New blog</Link>
     </div>
   )
 }
