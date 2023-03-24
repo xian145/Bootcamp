@@ -13,6 +13,12 @@ export default function Spreadsheet() {
     ['', '', '', ''],
   ])
 
+  const updateData = (x, y, value) => {
+    const isData = structuredClone(data)
+    isData[x][y] = value //the square bracket are use to select first the array, then the postion inside the array
+    setData(isData) //this will update the array and how isData is a clone we will change everything in data
+  }
+
   return (
     <div className={`grid grid-cols-${data[0].length}`}> {/* js code returns the lenght of the first array in teh array */}
       {data.map((row, y) => { //data is the array of 8 arrays with 4 items each, with a total of 32 elements, so this will map each 32 elements
@@ -20,7 +26,11 @@ export default function Spreadsheet() {
         return row.map((cell, x) => { //run for every element inside the array for each array, cell is the value inside of the array and x the index
           return <Cell 
           initialValue={cell} //value inside of the array passed as a props named initialValue, and as we said, cell is the value inside the array
-          key={y + '-' + x} /> //render a div for eache element in the arrays, a total of 32, the key is the index inside the first array with the index of the second array (0-4)
+          key={y + '-' + x}
+          x={x}
+          y={y}
+          updateData={updateData}
+          /> //render a div for eache element in the arrays, a total of 32, the key is the index inside the first array with the index of the second array (0-4)
         })
       })}
     </div>
