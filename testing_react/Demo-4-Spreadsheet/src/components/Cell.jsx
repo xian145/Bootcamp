@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 
-function Cell({initialValue}) {
+function Cell({ initialValue, x, y, updateData }) {
   const [isSelected, setIsSelected] = useState(false)
   const [value, setValue] = useState(initialValue) //so we can change the value
 
@@ -16,7 +16,8 @@ function Cell({initialValue}) {
     return <input 
     value={value} //change to value defined above so we can change it with setValue
     onChange={(event) => {
-      setValue(event.target.value) //change the use the event on change targeting what "value" and this value is rendered inside the div after deselect
+      setValue(event.target.value) //change the use the event on change targeting what "value" and this value is rendered inside the div after deselect. THIS ONLY CHANGE THE VALUE OF 'VALUE' IN THE DIV
+      updateData(x, y, event.target.value) //call the funtion to add the values to the actual array
     }}
     className={cellStyle}/>
   }
