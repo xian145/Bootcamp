@@ -3,10 +3,10 @@ import Cell from './Cell' //call cell from component cell
 
 export default function Spreadsheet() {
   const [data, setData] = useState([ //array containing 8 arrays
-    ['yes', '', '', ''],
-    ['', 'me', '', ''],
-    ['', '', 'la', ''],
-    ['', '', '', 'pelas'],
+    ['', '', '', ''],
+    ['', '', '', ''],
+    ['', '', '', ''],
+    ['', '', '', ''],
     ['', '', '', ''],
     ['', '', '', ''],
     ['', '', '', ''],

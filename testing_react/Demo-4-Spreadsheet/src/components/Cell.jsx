@@ -27,7 +27,7 @@ function Cell({initialValue}) {
   {setIsSelected(true)}}
   } //change to true if we click it
   className={cellStyle}
-  >{value}
+  >{value || <span className='text-gray-200'>-</span>}{/* if value is an empty array we change to a "-" so it keeps the same size every time */}
   </div>
 }
 
