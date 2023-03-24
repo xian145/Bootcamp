@@ -15,7 +15,7 @@ export default function Spreadsheet() {
 
   const updateData = (x, y, value) => {
     const isData = structuredClone(data)
-    isData[x][y] = value //the square bracket are use to select first the array, then the postion inside the array
+    isData[y][x] = value //the square bracket are use to select first the array, then the postion inside the array
     setData(isData) //this will update the array and how isData is a clone we will change everything in data
   }
 
@@ -25,7 +25,7 @@ export default function Spreadsheet() {
         // 'row' is the array inside of the array and 'y' is the index of the array inside the array
         return row.map((cell, x) => { //run for every element inside the array for each array, cell is the value inside of the array and x the index
           return <Cell 
-          initialValue={cell} //value inside of the array passed as a props named initialValue, and as we said, cell is the value inside the array
+          value={cell} //value inside of the array passed as a props named initialValue, and as we said, cell is the value inside the array
           key={y + '-' + x}
           x={x}
           y={y}
