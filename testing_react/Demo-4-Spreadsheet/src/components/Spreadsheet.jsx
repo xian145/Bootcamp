@@ -17,6 +17,10 @@ export default function Spreadsheet() {
     const isData = structuredClone(data)
     isData[y][x] = value //the square bracket are use to select first the array, then the postion inside the array
     setData(isData) //this will update the array and how isData is a clone we will change everything in data
+
+    if (window && window.localStorage) {
+      window.localStorage.setItem('spreadsheet', JSON.stringify(isData)) //put in local storage wit the key 'spreadsheet' the data from the array of arrays
+    }
   }
 
   return (
