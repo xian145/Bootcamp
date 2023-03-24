@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 
 function Cell({initialValue}) {
   const [isSelected, setIsSelected] = useState(false)
+  const [value, setValue] = useState(initialValue) //so we can change the value
 
   useEffect(() => {
     window.document.addEventListener('unselectAll', () => { //we listen thor the trigger event and then
@@ -12,7 +13,12 @@ function Cell({initialValue}) {
   const cellStyle = 'border-2 p-6 cursor-pointer hover:bg-gray-300 focus:bg-green-100'
 
   if (isSelected) { //if its true will change the div to an input
-    return <input className={cellStyle}/>
+    return <input 
+    value={value} //change to value defined above so we can change it with setValue
+    onChange={(event) => {
+      setValue(event.target.value) //change the use the event on change targeting what "value" and this value is rendered inside the div after deselect
+    }}
+    className={cellStyle}/>
   }
 
   return <div
@@ -21,7 +27,7 @@ function Cell({initialValue}) {
   {setIsSelected(true)}}
   } //change to true if we click it
   className={cellStyle}
-  >{initialValue}
+  >{value}
   </div>
 }
 
