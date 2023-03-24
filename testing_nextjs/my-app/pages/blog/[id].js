@@ -1,0 +1,1 @@
+import { useRouter } from 'next/router' //import useRouter so we can handle the dynamic URLs
