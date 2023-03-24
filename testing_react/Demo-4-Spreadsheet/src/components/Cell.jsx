@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 
-function Cell() {
+function Cell({initialValue}) {
   const [isSelected, setIsSelected] = useState(false)
 
   useEffect(() => {
@@ -9,7 +9,7 @@ function Cell() {
     })
   }, []) //only execute when render the DOM
 
-  const cellStyle = 'border-2 p-3 cursor-pointer hover:bg-gray-300 focus:bg-green-100'
+  const cellStyle = 'border-2 p-6 cursor-pointer hover:bg-gray-300 focus:bg-green-100'
 
   if (isSelected) { //if its true will change the div to an input
     return <input className={cellStyle}/>
@@ -21,7 +21,7 @@ function Cell() {
   {setIsSelected(true)}}
   } //change to true if we click it
   className={cellStyle}
-  >cell
+  >{initialValue}
   </div>
 }
 
