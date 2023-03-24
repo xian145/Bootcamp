@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react' //add useEffect to load the data the first time we load the DOM, so useEffect should have square brackets
 import Cell from './Cell' //call cell from component cell
 
 export default function Spreadsheet() {
@@ -13,8 +13,13 @@ export default function Spreadsheet() {
     ['', '', '', ''],
   ])
 
+  useEffect(() => {
+    const thereIsData = window.localStorage.getItem('spreadsheet') //this will retrieve from local storage what is inside of spreadshet key
+    if (thereIsData) setData(JSON.parse(thereIsData)) //if we get something in 'data' will pass that information to data usign setData
+  }, [window.localStorage])
+
   const updateData = (x, y, value) => {
-    const isData = structuredClone(data)
+    const isData = structuredClone(data) //is data can have any name
     isData[y][x] = value //the square bracket are use to select first the array, then the postion inside the array
     setData(isData) //this will update the array and how isData is a clone we will change everything in data
 
