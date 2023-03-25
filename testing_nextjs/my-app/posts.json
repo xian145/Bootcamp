@@ -1,7 +1,7 @@
 {
   "test": {
-    "title": "test post",
-    "content": "Hey some post content"
+    "title": "Title of the post",
+    "content": "Content of the post"
   },
   "second": {
     "title": "second post",
