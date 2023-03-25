@@ -5,6 +5,8 @@ function blogPost() {
   const router = useRouter() //to initiate router
   const post = posts[router.query.id] //we are looking in the URL for the id, so the user enter that value in the navBar of the browser, after getting the id, the program know what post will render
 
+  if (!post) return <p></p>
+
   return (
     <>
       <h1>
