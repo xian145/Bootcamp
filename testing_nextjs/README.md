@@ -17,3 +17,8 @@ If we want to create a dynamic URL we need to create a file with the dame [id].j
 In the file name, [id] inside the square brackets means that anything that's dynamic will be put inside the id parameter of the query property of the router.
 
 so we need to import the router inside the [id].js file
+
+when we want to fecth some data to fetch data we can do it in at least 2 ways:
+- Server side: this will require a special function provided by next.js (getServerSideProps()) where the server that is hosting our app will fetch the information before the pages is rendered, this will require more time than client side. but sometime this is needed if we need something from a database
+
+- Client side: we let the client fetch the information, it will be faster

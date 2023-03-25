@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router' //import useRouter so we can handle the dynamic URLs
 import posts from 'posts.json'
+import DogImage from '../clientdogs'
 
 function blogPost() {
   const router = useRouter() //to initiate router
@@ -17,6 +18,7 @@ function blogPost() {
       <p>
         {post.content}{/* content is a property from posts.json */}
       </p>
+      <DogImage />{/* will render a random image of a dog in each blog post */}
     </>
   )
 }
