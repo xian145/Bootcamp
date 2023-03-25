@@ -6,5 +6,9 @@
   "second": {
     "title": "second post",
     "content": "Hey this is the second post content"
+  },
+  "Another": {
+    "title": "Another test",
+    "content": "what is content?"
   }
 }
