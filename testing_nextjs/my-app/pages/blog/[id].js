@@ -1,13 +1,18 @@
 import { useRouter } from 'next/router' //import useRouter so we can handle the dynamic URLs
+import posts from 'posts.json'
 
 function blogPost() {
   const router = useRouter() //to initiate router
+  const post = posts[router.query.id] //we are looking in the URL for the id, so the user enter that value in the navBar of the browser, after getting the id, the program know what post will render
 
   return (
     <>
-      <h1>Blog post</h1>
-      <p>Post id: {router.query.id}</p>{/* using router we can select using query the id, this will create a new page with the route we use in the URL and use it as 'id' */}
-    {/* as we can saw, there's not a file with the name of the route we search in the navbar, but if we search in the URL a file that actually exist it will rendere it with any issue */}
+      <h1>
+        {post.title}{/* post is imported from posts.json from the root of the project, title is a property */}
+      </h1>
+      <p>
+        {post.content}{/* content is a property from posts.json */}
+      </p>
     </>
   )
 }
