@@ -11,6 +11,7 @@ export default function Index() {
             <Link href={`/blog/${id}`}>{posts[id].title}</Link> {/* id is the name of the key of the json object */}
           </li>
         })}
+        <Link href='/blog/xd'>This post actually dosent exist will create it anyway</Link>
       </ul>
     </div>
   )

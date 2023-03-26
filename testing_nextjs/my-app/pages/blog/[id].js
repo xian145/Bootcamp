@@ -11,7 +11,7 @@ function blogPost() {
   if (!post) return <p>this page dont actually exists but it generate the URL thanks to [id].js</p> //thi if avoid an error, bc the when we load the page query start but will be an empty array if the front end is not loaded yet
 //Now things should work. Initially the component is rendered without the dynamic router.query.id information. 
 //After rendering, Next.js triggers an update with the query value and the page displays the correct information.
-
+//Even if the props dosent exist will do all things without hessitate
   return (
     <>
       <h1>
