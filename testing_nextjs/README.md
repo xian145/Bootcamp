@@ -10,6 +10,8 @@ ENTER
 
 When run with "npm run dev" will appear .next folder
 
+to fix the problem with eslint need to replace the content with:   "extends": ["next/babel","next/caore-web-vitals"]
+
 When we creat a new js file with a "name" it will automatically create that page in our project, just need to type "localhost:3000/'name'"
 
 If we want to create a dynamic URL we need to create a file with the dame [id].js to handle this URLs inside of the archive
