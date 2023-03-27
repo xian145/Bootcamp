@@ -12,7 +12,19 @@ When run with "npm run dev" will appear .next folder
 
 to fix the problem with eslint need to replace the content with:   "extends": ["next/babel","next/caore-web-vitals"]
 
-When we creat a new js file with a "name" it will automatically create that page in our project, just need to type "localhost:3000/'name'"
+# How to install tailwindscss in a next.js project
+If we cant to add Tailwindcss in our project we need to do this in our project folder:
+
+- npm install -D tailwindcss postcss autoprefixer
+- npx tailwindcss init -p
+- then open tailwind.config.js and add this on content "  
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}","
+- now open styles/global.css and add this at the bottom of the file "@tailwind base;
+@tailwind components;
+@tailwind utilities;"
+
+When we create a new js file with a "name" it will automatically create that page in our project, just need to type "localhost:3000/'name'"
 
 If we want to create a dynamic URL we need to create a file with the dame [id].js to handle this URLs inside of the archive
 
