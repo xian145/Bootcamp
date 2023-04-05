@@ -10,4 +10,6 @@ $npm install -D prisma
 
 with this now we can initiate prisma in the terminal using:
 
-$npx prisma
+```
+npx prisma
+```
