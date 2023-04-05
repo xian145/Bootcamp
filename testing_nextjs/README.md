@@ -1,7 +1,9 @@
 # How to create a projects using next.js
 To create a project using next.js we use the next command
 
+```
 npx create-next-app@latest my-app
+```
 
 typeScript No
 ESlint Yes
