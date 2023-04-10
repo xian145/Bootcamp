@@ -43,3 +43,24 @@ As we change our schema.prisma, we need to create a migrate to apply the change,
 npx prisma migrate dev
 ```
 and give a name so we can rollback if necessary. this will create a bunch of file, just ignore it at the moment
+IMPORTNAT!!! every time you change the schema, you need to run npx prisma migrate dev to apply changes
+
+We need to create a folder named "lib" with prisma.js inside of it and add the next lines, 
+```
+import { PrismaClient } from '@prisma/client'
+
+const globalForPrisma = global
+
+const prisma = globalForPrisma.prisma || new PrismaClient()
+
+if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma
+
+export default prisma
+```
+
+this way we initializes prisma client, so now, every time we want to use prisma in a file we use 
+
+```
+import prisma from 'lib/prisma'
+```
+and next.js will automatically find it
