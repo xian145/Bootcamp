@@ -42,4 +42,4 @@ As we change our schema.prisma, we need to create a migrate to apply the change,
 ```
 npx prisma migrate dev
 ```
-and give a name so we can rollback if necessary
+and give a name so we can rollback if necessary. this will create a bunch of file, just ignore it at the moment
