@@ -63,4 +63,9 @@ this way we initializes prisma client, so now, every time we want to use prisma 
 ```
 import prisma from 'lib/prisma'
 ```
-and next.js will automatically find it
+and next.js will automatically find it.
+As it is in this example project we cannot write SQL directly but we can use server side method or using API routes.
+### Retrieve all information
+```
+const cars = await prisma.car.findMany() //find many will search for all inside of the database
+```
