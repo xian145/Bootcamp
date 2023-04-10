@@ -17,3 +17,12 @@ with this now we can initiate prisma in the terminal using:
 ```
 npx prisma
 ```
+
+To setup prisma we run 
+
+```
+npx prisma init
+```
+
+This will create a folder named "prisma". If we want to use another type of db we change postgreSQL to another one, like "sqlite"
+Dont forget to add ".env" in the .gitignore
