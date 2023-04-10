@@ -26,3 +26,20 @@ npx prisma init
 
 This will create a folder named "prisma". If we want to use another type of db we change postgreSQL to another one, like "sqlite"
 Dont forget to add ".env" in the .gitignore
+now on the prisma folder you need to add the model or as we look before in sql the create table, something like this:
+
+```
+model Car {
+  id         Int      @id @default(autoincrement())
+  brand      String
+  model      String
+  created_at DateTime @default(now())
+  bought     Boolean  @default(false)
+}
+```
+As we change our schema.prisma, we need to create a migrate to apply the change, so we use 
+
+```
+npx prisma migrate dev
+```
+and give a name so we can rollback if necessary
