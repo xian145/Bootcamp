@@ -10,10 +10,11 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Car { //this will tell the db how the table will be created adding 5 columns with differents entries
+model Car {
   id         Int      @id @default(autoincrement()) //@id attribute that tell us this is the primary key
   brand      String //they are strings
   model      String //they are strings
   created_at DateTime @default(now()) //default time will be now
   bought     Boolean  @default(false) //default is false
-} //all fields are mandatory by default, if we want to be oprional we add a "?" after the type of the variable
+}
+//all fields are mandatory by default, if we want to be oprional we add a "?" after the type of the variable
