@@ -65,7 +65,46 @@ import prisma from 'lib/prisma'
 ```
 and next.js will automatically find it.
 As it is in this example project we cannot write SQL directly but we can use server side method or using API routes.
+## Basics
 ### Retrieve all information
 ```
-const cars = await prisma.car.findMany() //find many will search for all inside of the database
+const cars = await prisma.car.findMany()
 ```
+findmany() will search for all inside of the database
+### Retrieve by data
+```
+const cars = await prisma.car.findMany({
+  where: {
+    brand: 'Ford',
+  },
+}) 
+we know there a key labeled brand, so we look for it
+```
+the same way can be used to find something using the primary key "id"
+### Adding in table
+```
+const car = await prisma.car.create({
+  data: {
+	  brand: 'Ford',
+	  model: 'Fiesta',
+  }
+})
+```
+ussign "create" you can add something to the table
+### Delete by id
+```
+await prisma.car.delete({
+  where: { id: 1 },
+})
+```
+you can delete with any othe way, like "where:{brand: 'ford'}" to delete all cars that are ford
+### Update data
+```
+await prisma.car.update({
+  where: { id: 1 },
+  data: {
+    bought: true
+  }
+})
+```
+Using update we can modify the content inside the table, first we look for the element using 'where', then we use 'data' to modify the information
