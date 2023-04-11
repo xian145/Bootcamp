@@ -11,28 +11,28 @@ datasource db {
 }
 
 model User {
-  id            String    @id @default(cuid())
-  name          String?
-  email         String?   @unique
-  username      String?   @unique
-  emailVerified DateTime?
-  image         String?
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
-  accounts      Account[]
-  sessions      Session[]
+  id            String    @id @default(cuid()) //unique id serves as a primary key
+  name          String? //name but no require
+  email         String?   @unique //unique but no require
+  username      String?   @unique //unique but no require
+  emailVerified DateTime? //entered as a date but no require
+  image         String? //image as a string? but no require
+  createdAt     DateTime  @default(now()) //the time is created, requiere, but default
+  updatedAt     DateTime  @updatedAt //require but default
+  accounts      Account[] //linked to account table
+  sessions      Session[] //linked to session table
 }
 
 model VerificationToken {
-  identifier String
-  token      String   @unique
-  expires    DateTime
+  identifier String //dont really know why we need it
+  token      String   @unique //dont really know why we need it
+  expires    DateTime //dont really know why we need it
 
-  @@unique([identifier, token])
+  @@unique([identifier, token]) //They are unique and related
 }
 
 model Account {
-  id                 String  @id @default(cuid())
+  id                 String  @id @default(cuid()) //unique and random created serves as a primary key
   userId             String
   type               String
   provider           String
@@ -45,17 +45,17 @@ model Account {
   id_token           String?
   session_state      String?
   oauth_token_secret String?
-  oauth_token        String?
+  oauth_token        String? //other stuff provided by Emailtrap
 
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade) //relation between tables. this relate "useriD" from this table to "id" from "User" model
 
-  @@unique([provider, providerAccountId])
+  @@unique([provider, providerAccountId]) //They are unique and related
 }
 
 model Session {
-  id           String   @id @default(cuid())
+  id           String   @id @default(cuid()) //unique and random created serves as a primary key
   sessionToken String   @unique
   userId       String
   expires      DateTime
-  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade) //relation between "userId" from this table to "id" from "User" model
 }
