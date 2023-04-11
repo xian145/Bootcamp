@@ -134,3 +134,9 @@ await prisma.car.update({
 ```
 
 Using update we can modify the content inside the table, first we look for the element using 'where', then we use 'data' to modify the information
+
+## Video
+
+If you want to see some example you can look at this video
+
+- https://www.youtube.com/watch?v=RebA5J-rlwg
