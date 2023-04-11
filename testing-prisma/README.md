@@ -20,9 +20,17 @@ npx prisma
 
 To setup prisma we run
 
-```c
+```
 npx prisma init
 ```
+
+In the .env file we change the DATABASE_URL to the URL we want to use, if its a local project you can use this
+
+```js
+DATABASE_URL = "file:./dev.db";
+```
+
+Now after migration we create a new file automatically with our DB.
 
 This will create a folder named "prisma". If we want to use another type of db we change postgreSQL to another one, like "sqlite"
 Dont forget to add ".env" in the .gitignore
