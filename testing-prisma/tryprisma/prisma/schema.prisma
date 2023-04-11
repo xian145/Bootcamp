@@ -17,4 +17,5 @@ model Car {
   created_at DateTime @default(now()) //default time will be now
   bought     Boolean  @default(false) //default is false
 }
+
 //all fields are mandatory by default, if we want to be oprional we add a "?" after the type of the variable
