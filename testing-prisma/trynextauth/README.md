@@ -17,6 +17,9 @@ SECRET=<ENTER A UNIQUE STRING HERE>
 ```
 
 Where secrete is a secrete pasword, can be generated [here](https://generate-secret.vercel.app/32).
+
 In Email_Server we put the information we get from Mailtrap.
+
 To test this library we use [Mailtrap](https://mailtrap.io/home)
+
 Press start to create a new inbox and there you can pick any technology you want to test. from there in this project used the SMTP, we show credential to know what is require to enter a SMTP server, those datail will be in .env
